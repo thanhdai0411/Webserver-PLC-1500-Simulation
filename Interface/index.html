@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Scada</title>
+    <script src="./script/jquery-2.0.2.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"> -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <h1 class="title_system" style="">HỆ THỐNG ASSEMLER ANALOG</h1>
+    <div class="container">
+        <div style="display: flex; width: 100%;">
+
+            <div class="control" style="flex:1">
+                <div>
+                    <p class="subtile_system">ĐIỀU KHIỂN HỆ THỐNG</p>
+                </div>
+
+                <div style="height: 100%; display: flex; flex-direction: column;">
+                    <div class="state_system1">
+                        <img id="state_system_icon" src="./img/icon3.png" alt="" width="150">
+                    </div>
+                    <div class=" btn_group">
+                        <button class="btn_start btn">START</button>
+                        <button class="btn_stop btn">STOP</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="state" style="flex:1">
+                <p class="subtile_system">THÔNG SỐ
+                    HỆ THỐNG</p>
+                <div style="flex: 1;">
+                    <table>
+
+                        <tr>
+                            <td>Sản phẩm hiện có</td>
+                            <td id="counter_product"
+                                style="font-weight: 500; font-size: 25px; padding: 0; width: 80px; ">
+                                0
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Giá trị cảm biến trục x</td>
+                            <td id="value_x"
+                                style="font-weight: 500; font-size: 25px; padding: 0; width: 80px; ">
+                                0</td>
+                        </tr>
+                        <tr>
+                            <td>Giá trị cảm biến trục z</td>
+                            <td id="value_z"
+                                style="font-weight: 500; font-size: 25px; padding: 0; width: 80px; ">
+                                0</td>
+                        </tr>
+                        <tr>
+                            <td>NOTHING</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+                <button class="btn_reset btn">RESET GIÁ TRỊ SẢN PHẨM</button>
+            </div>
+            <div class="state" style="flex:1">
+                <p class="subtile_system">TRẠNG THÁI CƠ CẤU CHẤP HÀNH</p>
+                <div style="flex: 1;">
+                    <table>
+
+                        <tr>
+                            <td>BT NẮP</td>
+                            <td>
+                                <div class="state_actuator_off" id="value_bt_nap"></div>
+                            </td>
+                            <td>CB NẮP</td>
+                            <td>
+                                <div class="state_actuator_off" id="value_cb_nap"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>BT ĐẾ</td>
+                            <td>
+                                <div class="state_actuator_off" id="value_bt_de"></div>
+                            </td>
+                            <td>CB ĐẾ</td>
+                            <td>
+                                <div class="state_actuator_off" id="value_cb_de"></div>
+
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>BCH NẮP</td>
+                            <td>
+                                <div class="state_actuator_off" id="value_bch_nap"></div>
+                            </td>
+                            <td>BCH ĐẾ</td>
+                            <td>
+                                <div class="state_actuator_off" id="value_bch_de"></div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>BT ĐẾM</td>
+                            <td>
+                                <div class="state_actuator_off" id="value_bt_dem"></div>
+
+                            </td>
+                            <td>CB ĐẾM</td>
+                            <td>
+                                <div class="state_actuator_off" id="value_cb_dem"></div>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="state_device">
+            <p class="subtile_system">TRẠNG THÁI CƠ CẤU CHẤP HÀNH</p>
+            <!-- 1 -->
+            <div style="display: flex; margin-top: 40px;">
+                <!-- c1 -->
+                <div class="conveyor" style="flex:1; position:relative;">
+                    <span
+                        style="position:absolute ; top : -25%; left: 36% ; color: black; font-size: 20px; font-weight: 600;">BĂNG
+                        TẢI
+                        NẮP</span>
+                    <img id="bt_nap" src="./img/conveyor-belt-2_off.png" alt="" width="100%"
+                        height="110">
+                </div>
+                <!--  -->
+                <div style="position:relative;">
+                    <span
+                        style="position:absolute ; top : -25%; left: 10% ; color: black; font-size: 20px; font-weight: 600;">CB
+                        NẮP</span>
+                    <img id="cb_nap" src="./img/sensor_off.png" alt="" width="100" height="110">
+                </div>
+                <div style="position:relative;">
+                    <span
+                        style="position:absolute ; top : -25%; left: 8% ; color: black; font-size: 20px; font-weight: 600;">NOTHING
+                    </span>
+                    <img id="" src="./img/sensor_off.png" alt="" width="100" height="110">
+                </div>
+                <!-- c2 -->
+                <div class="conveyor" style="flex:1;  position:relative;">
+                    <span
+                        style="position:absolute ; top : -25%; left: 30% ; color: black; font-size: 20px; font-weight: 600;">BĂNG
+                        TẢI
+                        NOTHING</span>
+                    <img src="./img/conveyor-belt-2_off.png" alt="" width="100%" height="110">
+                </div>
+            </div>
+            <!-- 2 -->
+            <div style="display: flex; margin-top: 50px;">
+                <div class="conveyor" style="flex:1;position:relative;">
+                    <span
+                        style="position:absolute ; top : -25%; left: 36% ; color: black; font-size: 20px; font-weight: 600;">BĂNG
+                        TẢI
+                        ĐẾ</span>
+                    <img id="bt_de" src="./img/conveyor-belt-2_off.png" alt="" width="100%"
+                        height="110">
+                </div>
+                <!--  -->
+                <div style="position:relative;">
+                    <span
+                        style="position:absolute ; top : -25%; left: 16% ; color: black; font-size: 20px; font-weight: 600;">CB
+                        ĐẾ</span>
+                    <img id="cb_de" src="./img/sensor_off.png" alt="" width="100" height="110">
+                </div>
+                <div style="position:relative;">
+                    <span
+                        style="position:absolute ; top : -25%; left: 10% ; color: black; font-size: 20px; font-weight: 600;">CB
+                        ĐẾM</span>
+                    <img id="cb_dem" src="./img/sensor_off.png" alt="" width="100" height="110">
+                </div>
+                <!--  -->
+                <div class="conveyor" style="flex:1;position:relative;">
+                    <span
+                        style="position:absolute ; top : -25%; left: 36% ; color: black; font-size: 20px; font-weight: 600;">BĂNG
+                        TẢI
+                        ĐẾM</span>
+                    <img id="bt_dem" src="./img/conveyor-belt-2_off.png" alt="" width="100%"
+                        height="110">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script type=" text/javascript" src="./script/script.js"></script>
+
+</body>
+
+</html>
